@@ -25,7 +25,7 @@ float getHipotenuse(float a, float b)
 
 void problem_1()
 {
-    cout << endl << "Problema 1" << endl;
+    cout << endl << "Problema 1 - Hipotenusa de un Triángulo" << endl;
     float a, b;
     getInput(a, b);
     float hipotenuse = getHipotenuse(a, b);
@@ -34,7 +34,7 @@ void problem_1()
 
 void problem_2()
 {
-    cout << endl << "Problema 2" << endl;
+    cout << endl << "Problema 2 - Qué número es mayor" << endl;
     float a, b;
     getInput(a, b);
     if(a > b)
@@ -45,7 +45,7 @@ void problem_2()
 
 void problem_3()
 { 
-    cout << endl << "Problema 3" << endl;
+    cout << endl << "Problema 3 - Superficie de Cuadrado con Hipotenusa" << endl;
     float a, b;
     getInput(a, b);
 
@@ -63,18 +63,19 @@ void problem_3()
 void problem_4()
 {   
     srand (time(NULL));
-    cout << endl << "Problema 4" << endl;
+    cout << endl << "Problema 4 - Hipotenusas de Triángulos" << endl;
     bool looping = true;
     float a, b;
 
-    int triangleCounter = 0;
-    int bigHipotenuseCounter = 0;
-    int smallHipotenuseCounter = 0;
+    float triangleCounter = 0;
+    float bigHipotenuseCounter = 0;
+    float smallHipotenuseCounter = 0;
 
     vector <float> hipotenuses;
 
     while(looping)
     {
+        float a, b;
         //getInput(a, b);
         a = rand() % 230 - 2;
         b = rand() % 230 - 2;
@@ -96,16 +97,16 @@ void problem_4()
             looping = false;
     }
 
-    float bigHipotenusePercentage = float(bigHipotenuseCounter / triangleCounter) * 100;
-    float smallHipotenusePercentage = (smallHipotenuseCounter / triangleCounter) * 100;
     
+    float bigHipotenusePercentage = bigHipotenuseCounter / triangleCounter * 100;
+    float smallHipotenusePercentage = smallHipotenuseCounter / triangleCounter * 100;
+
     float hipotenuseMedian = 0;
 
     int i = 0;
     for(i; i < hipotenuses.size(); i++)
     {
         hipotenuseMedian += hipotenuses[i];
-        cout << hipotenuses[i] << endl;
     }
     hipotenuseMedian = hipotenuseMedian / i;
 
@@ -122,32 +123,50 @@ void problem_4()
 
 void problem_5()
 {
-    int a, b;
-    cin>>a;
-    cin>>b;
-
-    float resultado = pow(a, b);
-    cout << resultado << endl;
-    /*
-    for(int i = 0; i < b; i++)
-    {
-        resultado = resultado * a;
+    cout << endl << "Problema 5 - Potencia con base y exponente" << endl;
+    float a, b;
+    getInput(a, b);    
+    if ((a + b) > 0)
+        {
+        float resultado = a;
+        for(int i = 1; i < b; i++)
+            resultado = resultado * a;
+   
         cout << resultado << endl;
-    }
-    */
+	}
+    else
+         cout << "La base o el exponente no deben ser menores a cero!" << endl;
+    
 }
 
+void problem_6()
+{
+    cout << endl << "Problema 6 - Factorial de un número" << endl;
+    float a;
+    cout << "Ingrese el Valor de A: ";
+    cin >> a;
+    
+    if (a >= 0)
+    {
+        float factorial = 1;
+        float result;
+
+        for(int i = 1; i <= a ; i++)
+            factorial = i * factorial;
+
+        result = factorial;
+        cout << "Resultado: " << result << endl;
+    }
+}
 
 int main()
 {
-    system("cls");
-    //problem_1();
-    //problem_2();
-    //problem_3();
-    //problem_4();
+    //system("cls");
+    problem_1();
+    problem_2();
+    problem_3();
+    problem_4();
     problem_5();
-    //Hola 
-
-
+    problem_6();
     return 0;
 }
