@@ -168,10 +168,47 @@ void problem_7()
     
     if (n >= 0 && n < 100000)
     {
-        float e = pow(1 + 1/n, n);
-        float result = e;
+        double e = 0;
+        for(int i = 0; i < n; i++)
+        {
+            
+            double factorial = 1;
+
+            for(int j = 1; j <= i ; j++)
+                factorial = j * factorial;
+
+            e += 1 / factorial;
+        }
+                
+        double result = e;
+        cout.precision(100);
         cout << "Resultado: " << result << endl;
     }
+}
+
+void problem_10()
+{
+    int n, r = 1;
+    cin >> n;
+
+    if (n >= 0)
+    {
+        if(n == 0)
+            cout << "F";
+        else
+        { 
+            int a = 1;
+            
+            for(int i = 1; i <= n; i++)
+            { 
+                r += a;
+                a = r - a;
+                cout << r << " ";
+            }
+
+        }
+    }
+    
 }
 
 int main()
@@ -183,6 +220,7 @@ int main()
     // problem_4();
     // problem_5();
     // problem_6();
-    problem_7();
+    // problem_7();
+    problem_10();
     return 0;
 }
